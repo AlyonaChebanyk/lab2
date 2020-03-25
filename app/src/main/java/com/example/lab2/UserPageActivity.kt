@@ -17,7 +17,7 @@ class UserPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_page)
-        
+
         //display an arrow in toolbar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -43,15 +43,15 @@ class UserPageActivity : AppCompatActivity() {
             // Получаем Package Manager
             val manager = this.packageManager
             // Получаем список обработчиков намерения
-            val list = manager.queryIntentActivities(intent, 0)
+            val list = manager.queryIntentActivities(photoPickerIntent, 0)
 
             if (list.size > 0) {
-                startActivity(intent)
+                //starting activity for result
+                startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG)
             } else {
                 Toast.makeText(this, "Невозможно обработать намерение!", Toast.LENGTH_LONG).show()
             }
-            //starting activity for result
-            startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG)
+
         }
     }
 
