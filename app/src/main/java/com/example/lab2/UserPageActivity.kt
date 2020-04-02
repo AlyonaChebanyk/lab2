@@ -25,7 +25,7 @@ class UserPageActivity : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
         val user = bundle?.getSerializable("user") as User
 
-        //using Picasso library to set image
+        //set image
         pictureImageView.setImageResource(R.drawable.user_profile)
 
         //display data
